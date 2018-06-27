@@ -1,0 +1,6 @@
+[submodule "themes/hugo-utilitybelt"]
+	path = themes/hugo-utilitybelt
+	url = git@github.com:lockedatapublished/hugo-utilitybelt.git
+[submodule "themes/hugo-itsalocke"]
+	path = themes/hugo-itsalocke
+	url = git@github.com:lockedatapublished/hugo-itsalocke.git
