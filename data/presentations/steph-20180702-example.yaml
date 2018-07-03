@@ -1,0 +1,22 @@
+talk_id: example
+person_id: steph
+start: 2018-07-32T18:00:00.00+01:00
+end: 2018-07-32T19:00:00.00+01:00
+event: sqlsoton
+location: somewhere in southampton
+url: //meetup.com/sqlsoton
+twitter: sqlsoton
+video_url: false
+review_url: false
+image_url: false
+admin:
+  remuneration:
+    paid: false
+    tne: false
+    lockedata_expenses: true
+    details: > 
+      need train from cardiff to soton and back, 
+      same day +30 minutes either side for travel
+  collateral:
+    need: stickers
+    send_to: me
