@@ -1,5 +1,5 @@
 baseURL = "http://example.org/"
 title = "My New Hugo Site"
-theme = ["hugo-utilitybelt", "hugo-itsalocke"]
+theme = ["hugo-now-ui", "hugo-utilitybelt",  "hugo-itsalocke"]
 languageCode = "en-gb"
 description = "Hi"
