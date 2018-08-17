@@ -5,7 +5,9 @@ title = "Now UI Kit"
 googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
-#enableGitInfo = true
+enableGitInfo = true
+
+
 
 [taxonomies]
   author = "authors"
@@ -89,7 +91,7 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
     highlightCDN = "//cdn.bootcss.com"
     highlightjsLang = ["r", "yaml"]
     highlightjsTheme = "github"
-
-
+    staticman_debug = true
+    staticman_url = "https://api.staticman.net/v2/entry/lockedatapublished/itsalockev2/master/comments"
     
 
