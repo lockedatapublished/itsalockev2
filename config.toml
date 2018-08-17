@@ -94,6 +94,6 @@ enableGitInfo = true
 
     # options for staticman
     staticman_debug = true
-    staticman_url = "https://api.staticman.net/v2/entry/lockedatapublished/itsalockev2/staticman/comments"
+    staticman_url = "https://api.staticman.net/v2/entry/lockedatapublished/itsalockev2/staticman"
     
 
