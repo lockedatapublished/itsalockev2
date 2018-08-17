@@ -11,7 +11,7 @@ comments:
 
   # When allowedOrigins is defined, only requests sent from one of the domains
   # listed will be accepted.
-  allowedOrigins: ["localhost", "itsalockev2.netlify.com"", "staticman--itsalockev2.netlify.com"]
+  allowedOrigins: ["localhost", "itsalockev2.netlify.com", "staticman--itsalockev2.netlify.com"]
 
   # (*) REQUIRED
   #
