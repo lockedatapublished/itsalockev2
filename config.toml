@@ -5,7 +5,9 @@ title = "Now UI Kit"
 googleAnalytics = ""
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
-#enableGitInfo = true
+enableGitInfo = true
+
+
 
 [taxonomies]
   author = "authors"
@@ -90,6 +92,8 @@ ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
     highlightjsLang = ["r", "yaml"]
     highlightjsTheme = "github"
 
-
+    # options for staticman
+    staticman_debug = true
+    staticman_url = "https://api.staticman.net/v2/entry/lockedatapublished/itsalockev2/staticman/comments"
     
 
