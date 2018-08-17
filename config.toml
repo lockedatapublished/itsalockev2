@@ -91,6 +91,8 @@ enableGitInfo = true
     highlightCDN = "//cdn.bootcss.com"
     highlightjsLang = ["r", "yaml"]
     highlightjsTheme = "github"
+
+    # options for staticman
     staticman_debug = true
     staticman_url = "https://api.staticman.net/v2/entry/lockedatapublished/itsalockev2/master/comments"
     
