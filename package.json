@@ -6,6 +6,7 @@
     "author": "Steph Locke <steph@itsalocke.com>",
     "license": "MIT",
     "scripts": {
+      "gulp": "gulp",
       "build-search-index": "gulp build"
     },
     "husky": {
