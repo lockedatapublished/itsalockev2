@@ -6,16 +6,10 @@
     "author": "Steph Locke <steph@itsalocke.com>",
     "license": "MIT",
     "scripts": {
-      "build-search-index": "gulp build"
-    },
-    "husky": {
-      "hooks": {
-        "pre-commit": "yarn build-search-index && git add ./public"
-      }
+      "build-search-index": "gulp"
     },
     "devDependencies": {
       "gulp": "^3.9.1",
-      "hugo-search-index": "^0.4.1",
-      "husky": "^1.0.0-rc.12"
+      "hugo-search-index": "^0.4.1"
     }
   }
