@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command =  "./build.sh"
+  command =  "chmod 777 build.sh && ./build.sh"
 
 [context.production.environment]
   HUGO_VERSION = "0.46"
@@ -14,7 +14,7 @@
   HUGO_VERSION = "0.46"
 
 [context.deploy-preview]
-command = "./build.sh"
+command = "chmod 777 build.sh && ./build.sh"
 
 [context.branch-deploy]
-command = "./build.sh"
+command = "chmod 777 build.sh && ./build.sh"
