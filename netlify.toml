@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "hugo -b $DEPLOY_PRIME_URL"
+  command =  "./build.sh"
 
 [context.production.environment]
   HUGO_VERSION = "0.46"
@@ -14,7 +14,7 @@
   HUGO_VERSION = "0.46"
 
 [context.deploy-preview]
-command = "gulp && hugo"
+command = "./build.sh"
 
 [context.branch-deploy]
-command = "gulp && hugo"
+command = "./build.sh"
