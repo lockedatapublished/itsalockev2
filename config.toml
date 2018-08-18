@@ -99,4 +99,6 @@ enableGitInfo = true
     # options for snipcart
     snipcart_test_api_key = "MTZiMjAxYzctNTFkNS00ZjFjLWI4YTAtZjU5OWQzNTc1YTZhNjM2NzAxOTY2OTQxMTUxNzkz"
     snipcart_live_api_key = "MTZiMjAxYzctNTFkNS00ZjFjLWI4YTAtZjU5OWQzNTc1YTZhNjM2NzAxOTY2OTQxMTUxNzkz"
+    currency = "GBP"
+    cloudinary_base_url = "https://res.cloudinary.com/dwalkr"
 
