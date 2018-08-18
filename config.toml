@@ -96,4 +96,7 @@ enableGitInfo = true
     staticman_debug = true
     staticman_url = "https://api.staticman.net/v2/entry/lockedatapublished/itsalockev2/master/comments"
     
+    # options for snipcart
+    snipcart_test_api_key = "MTZiMjAxYzctNTFkNS00ZjFjLWI4YTAtZjU5OWQzNTc1YTZhNjM2NzAxOTY2OTQxMTUxNzkz"
+    snipcart_live_api_key = "MTZiMjAxYzctNTFkNS00ZjFjLWI4YTAtZjU5OWQzNTc1YTZhNjM2NzAxOTY2OTQxMTUxNzkz"
 
