@@ -14,7 +14,7 @@
   HUGO_VERSION = "0.46"
 
 [context.deploy-preview]
-command = "chmod 777 build.sh && ./build.sh"
+command =  "hugo -b $DEPLOY_PRIME_URL && gulp"
 
 [context.branch-deploy]
-command = "chmod 777 build.sh && ./build.sh"
+command =  "hugo -b $DEPLOY_PRIME_URL && gulp"
