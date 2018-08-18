@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command =  "chmod 777 build.sh && ./build.sh"
+  command =  "gulp && hugo"
 
 [context.production.environment]
   HUGO_VERSION = "0.46"
