@@ -7,7 +7,15 @@ disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 enableGitInfo = true
 
+copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
 
+[author]
+    name = "My Name Here"
+    email = "check@check.com"
+
+[outputs]
+  home = ["HTML", "AMP", "RSS", "JSON"]
+  page = ["HTML", "AMP", "JSON"]
 
 [taxonomies]
   author = "authors"
