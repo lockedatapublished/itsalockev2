@@ -14,7 +14,7 @@
   HUGO_VERSION = "0.46"
 
 [context.deploy-preview]
-command = "hugo -b $DEPLOY_PRIME_URL"
+command = "gulp && hugo"
 
 [context.branch-deploy]
-command = "hugo -b $DEPLOY_PRIME_URL"
+command = "gulp && hugo"

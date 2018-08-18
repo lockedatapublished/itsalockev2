@@ -1,0 +1,21 @@
+{
+    "name": "itsalocke",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:lockedatapublished/itsalockev2.git",
+    "author": "Steph Locke <steph@itsalocke.com>",
+    "license": "MIT",
+    "scripts": {
+      "build-search-index": "gulp build"
+    },
+    "husky": {
+      "hooks": {
+        "pre-commit": "yarn build-search-index && git add ./public"
+      }
+    },
+    "devDependencies": {
+      "gulp": "^3.9.1",
+      "hugo-search-index": "^0.4.1",
+      "husky": "^1.0.0-rc.12"
+    }
+  }
