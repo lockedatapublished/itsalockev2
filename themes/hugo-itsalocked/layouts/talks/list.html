@@ -7,14 +7,8 @@
 </div> 
 
 <div class="container py-10">
-  {{ printf "%#v" .Pages }}
-  <ul>
-    {{ range .Pages }}
-    <li>
-      <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-      <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-    </li>
-    {{ end }}
-  </ul>
+  {{ range .Pages }}
+    {{ .Render "summary"}}
+  {{ end }}
 </div>
 {{ end }}
