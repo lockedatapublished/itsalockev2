@@ -110,9 +110,13 @@ footer {
 }
 
 h1,
-h2,
-h3 {
+h2 {
   @apply .text-blue-darkest mb-2 font-header font-normal;
+}
+
+
+h3 {
+  @apply .text-blue-darkest mb-2 font-normal;
 }
 
 p {
@@ -185,4 +189,8 @@ a.NavLink:hover .far {
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+
+.SiteTitle {
+  @apply .text-blue-darkest mb-2 text-5xl font-header font-normal;
 }
