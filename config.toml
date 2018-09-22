@@ -21,12 +21,15 @@ copyright = "This work is licensed under a Creative Commons Attribution-ShareAli
 [[menu.main]]
     name = "Authors"
     url = "/authors/"
+    pre = "<i class=\"far fa-users mr-1\"></i>"
 [[menu.main]]
     name = "Talks"
     url = "/talks/"
+    pre = "<i class=\"far fa-chalkboard-teacher mr-1\"></i>"
 [[menu.main]]
     name = "Products"
     url = "/products/"
+    pre = "<i class=\"far fa-shopping-bag mr-1\" data-fa-transform=\"rotate--3\"></i>"
 
 [[menu.footer]]
     identifier = "twitter"

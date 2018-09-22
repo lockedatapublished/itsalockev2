@@ -13,7 +13,8 @@
         {{ $currentPage := . }}
         {{ range .Site.Menus.main }}
             <li class="flex items-center justify-center">
-                <a href="{{ .URL }}" class="NavLink {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} NavLink--active{{end}}"> 
+                <a href="{{ .URL }}" class="NavLink {{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} NavLink--active{{end}}">
+                  {{ .Pre }}
                   {{ .Name }}
                 </a>
             </li>
@@ -21,7 +22,7 @@
         <li class="flex items-center justify-center">
           <link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
           <script src="https://calendly.com/assets/external/widget.js" type="text/javascript"></script>
-          <button onclick="Calendly.showPopupWidget('https://calendly.com/lockedata')" type="button" value="submit" class="Button Button-primary">Schedule a Call</button>
+          <button onclick="Calendly.showPopupWidget('https://calendly.com/lockedata')" type="button" value="submit" class="Button Button-primary"><i class="fal fa-mobile mr-1 Shake"  data-fa-transform="grow-4 rotate--3"></i> Schedule Call</button>
         </li>
       </ul>
     </div> 
