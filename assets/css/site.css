@@ -1,0 +1,137 @@
+* {
+  @apply antialiased;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+  @apply text-blue no-underline;
+}
+
+a:hover {
+  @apply underline .text-orange;
+}
+
+body {
+  @apply font-sans text-black;
+	display: grid;
+  grid-template: auto 1fr minmax(1rem, auto) auto / 100%;
+  grid-gap: 1rem;
+	min-height: 100vh;
+}
+
+.MainHeader {
+  order: 1;
+}
+
+.MainNav {
+  @apply flex items-center flex-row justify-between flex-wrap p-4 bg-blue border-b-8 border-blue-light fixed w-full pin-t pin-x;
+	align-items: center;
+  height: 5rem;
+  z-index: 1;
+}
+
+.Main {
+	order: 2;
+	background-color: #fff;
+}
+
+footer {
+	order: 4;
+	padding: 1rem;
+	border-top: 1px solid #ccc;
+	background-color: #fff;
+}
+
+@media (min-width: 40rem) {
+  body {
+    grid-template: 6rem 1fr auto / 1fr minmax(auto, 75rem) 1fr;
+  }
+
+  .MainHeader {
+    grid-column: span 3;
+  }
+
+  .Main {
+    order: 2;
+    grid-column: 2/3;
+  }
+
+  footer {
+    grid-column: span 3;
+  }
+}
+
+.Authors {
+  display: grid;
+  grid-template-columns: repeat( 4, minmax( 250px, 1fr ));
+}
+
+.Author {
+  @apply flex justify-center items-center flex-col no-underline border-transparent border-4 rounded-lg p-2 text-black;
+  transition: all 100ms ease-in-out;
+}
+
+.Author:hover {
+  @apply border-orange-light;
+  transition: all 100ms ease-in-out;
+}
+
+.Author-bio {
+  @apply font-normal text-grey-dark;
+  transition: all 100ms ease-in-out;
+}
+
+.Author-title {
+  transition: all 100ms ease-in-out;
+}
+
+.Author:hover .Author-title {
+  @apply text-orange;
+}
+
+.Author:hover .Author-bio {
+  @apply text-orange-light;
+}
+
+.AuthorBio {
+  display: grid;
+  grid-template-columns: 1fr repeat( 2, minmax( 250px, 1fr )) 1fr;
+  grid-gap: 1rem;
+}
+
+.AuthorBio-photo {
+  grid-column: 1 / span 2;
+}
+
+.AuthorBio-detail {
+  grid-column: 3 / span 2;
+}
+
+h1,
+h2,
+h3 {
+  @apply .text-blue-darkest mb-2 font-header font-normal;
+}
+
+p {
+  @apply mb-4;
+}
+
+ul {
+  @apply mb-4;
+}
+
+ul.NavLinks {
+  @apply list-reset flex justify-end flex-grow mb-0;
+}
+
+a.NavLink {
+  @apply block text-2xl text-white mr-6 no-underline uppercase tracking-wide rounded leading-none;
+}
+
+a.NavLink:hover,
+a.NavLink--active {
+  @apply text-orange;
+}

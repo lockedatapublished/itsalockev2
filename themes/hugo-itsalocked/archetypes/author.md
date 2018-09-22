@@ -1,6 +1,6 @@
 ---
-id: steph
-title: Steph Locke
+id: .Name
+title: "{{ replace .Name "-" " " | title }}"
 photo: img/chibi.png
 twitter: theStephLocke
 github: stephlocke
@@ -10,7 +10,6 @@ tags:
   - Data Science
   - DataOps
   - MVP
-shortbio: CEO, owner, maker, speaker
 ---
 
 ## Community bio

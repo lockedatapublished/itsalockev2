@@ -1,7 +1,7 @@
 ---
-id: steph
-title: Steph Locke
-photo: img/chibi.png
+id: darksteph
+title: Dark Steph Locke
+photo: img/chibidark.png
 twitter: theStephLocke
 github: stephlocke
 linkedin: //linkedin.com/in/stephlocke
@@ -10,7 +10,7 @@ tags:
   - Data Science
   - DataOps
   - MVP
-shortbio: CEO, owner, maker, speaker
+shortbio: CEO, destroyer, maimer
 ---
 
 ## Community bio

@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command =  "hugo && gulp"
+  command =  "hugo --gc && gulp"
 
 [context.production.environment]
   HUGO_VERSION = "0.46"
@@ -14,7 +14,7 @@
   HUGO_VERSION = "0.46"
 
 [context.deploy-preview]
-command =  "hugo -b $DEPLOY_PRIME_URL && gulp"
+command =  "hugo -b $DEPLOY_PRIME_URL --gc && gulp"
 
 [context.branch-deploy]
-command =  "hugo -b $DEPLOY_PRIME_URL && gulp"
+command =  "hugo -b $DEPLOY_PRIME_URL --gc && gulp"

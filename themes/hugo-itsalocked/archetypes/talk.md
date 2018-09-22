@@ -1,6 +1,6 @@
 ---
-id: example
-title: Simple example
+id: .Name
+title: "{{ replace .Name "-" " " | title }}"
 tagline: it just works
 level: beginner
 tags:
@@ -10,7 +10,6 @@ slide_url: slides/example.html
 blog_url: blog/example.html
 associated_urls:
   'example demo' : https://example.com
-date: "2018-05-15T18:53:23Z"
 ---
 
 ## Abstract

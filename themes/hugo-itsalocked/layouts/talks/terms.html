@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="py-10 bg-grey-lightest">
+  <div class="container mb-8">
+    <h1 class="mb-4">Author</h1>
+    <p>We have a great bunch of writers.</p>
+  </div>
+</div> 
+
+<div class="container py-10">
+  <div class="Authors">
+  {{ range .Data.Pages }}
+    <a href="{{ .Permalink }}" class="Author">
+      <img src="{{ .Params.photo | absURL }}" alt="{{ .Params.title }}" class="h-64">
+      <h2 class="Author-title">{{ .Params.title }}</h2>
+      <h3 class="Author-bio">{{ .Params.shortbio }}</h3>
+    </a>
+  {{ end }}
+  </div>
+</div>
+{{ end }}
