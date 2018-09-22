@@ -1,7 +1,7 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
+{{ printf "%#v" .Pages }}
 <ul>
-  <!-- Renders the li.html content view for each content/post/*.md -->
   {{ range .Pages }}
   <li>
     <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
