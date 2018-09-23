@@ -2,6 +2,12 @@
 <div class="container">
   <section id="main">
     <h1 class="mb-4 SiteTitle">{{ .Title }}</h1>
+
+    {{ with .Params.image }}
+    <div class="product__image column is-half">
+            {{ partial "use_snipcart_images/single-product" (dict "image" . "baseURL" $.Site.Params.cloudinary_base_url) }}
+    </div>
+    {{ end }}
     <div>
           <article id="content" class="leading-normal text-lg">
              {{ .Content }}

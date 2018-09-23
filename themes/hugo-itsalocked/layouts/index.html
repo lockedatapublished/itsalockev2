@@ -10,6 +10,17 @@
         <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
         {{.Content}}
       </div>
+
+      Check out <a href="authors/">authors</a>, <a href="talks/">talks</a>, and <a href="products/">products</a>
+
+
+      {{ partial "calendar.html" . }}
+  
+      {{ partial "use_hugo-search-index.html" .}}
+  
+      {{ partial "bypagefield.html" . }}
+
+
       <div class="Posts">
         <!-- Note that .Pages is the same as .Site.RegularPages on the homepage template. -->
         {{ range first 10 .Pages }}
