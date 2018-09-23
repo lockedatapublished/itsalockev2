@@ -1,0 +1,68 @@
+.Authors {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat( auto-fill, minmax(20rem, 1fr) );
+}
+
+.Author {
+  @apply flex rounded;
+}
+
+.Author-link {
+  @apply block bg-grey-lightest rounded p-4 border-4 border-orange-lightest no-underline flex-1 text-black;
+  transition: all 100ms ease-in-out;
+}
+
+.Author-link:hover {
+  @apply border-orange .no-underline;
+}
+
+.Author-body {
+  @apply .text-grey-darker;
+}
+
+.AuthorList {
+  display: grid;
+  grid-template-columns: repeat( auto-fill, minmax(20rem, 1fr) );
+}
+
+.AuthorItem {
+  @apply flex justify-center items-center flex-col no-underline border-transparent border-4 rounded-lg p-2 text-black;
+  transition: all 100ms ease-in-out;
+}
+
+.AuthorItem:hover {
+  @apply border-orange;
+  transition: all 100ms ease-in-out;
+}
+
+.AuthorItem-bio {
+  @apply font-normal text-grey-dark;
+  transition: all 100ms ease-in-out;
+}
+
+.AuthorItem-title {
+  transition: all 100ms ease-in-out;
+}
+
+.AuthorItem:hover .AuthorItem-title {
+  @apply text-orange;
+}
+
+.AuthorItem:hover .AuthorItem-bio {
+  @apply text-orange-light;
+}
+
+.AuthorBio {
+  display: grid;
+  grid-template-columns: 1fr repeat( 2, minmax( 20rem, 1fr )) 1fr;
+  grid-gap: 1rem;
+}
+
+.AuthorBio-photo {
+  grid-column: 1 / span 2;
+}
+
+.AuthorBio-detail {
+  grid-column: 3 / span 2;
+}

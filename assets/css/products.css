@@ -1,0 +1,22 @@
+.Products {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat( auto-fill, minmax(20rem, 1fr) );
+}
+
+.Product {
+  @apply flex rounded;
+}
+
+.Product-link {
+  @apply block bg-grey-lightest rounded p-4 border-4 border-blue-lightest no-underline flex-1 text-black;
+  transition: all 100ms ease-in-out;
+}
+
+.Product-link:hover {
+  @apply border-orange-lighter .no-underline;
+}
+
+.Product-body {
+  @apply .text-grey-darker;
+}
