@@ -8,17 +8,10 @@
   "scripts": {
     "gulp": "gulp",
     "build-search-index": "gulp",
-    "start": "hugo --gc"
+    "start": "hugo"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^1.0.1",
-    "autoprefixer": "^9.0.1",
     "gulp": "^3.9.1",
-    "hugo-search-index": "^0.4.1",
-    "postcss": "^7.0.1",
-    "postcss-cli": "^6.0.0",
-    "postcss-import": "^11.0.0",
-    "stylelint-config-recommended": "^2.1.0",
-    "tailwindcss": "^0.6.4"
+    "hugo-search-index": "^0.4.1"
   }
 }

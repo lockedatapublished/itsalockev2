@@ -1,4 +1,4 @@
-theme = ["hugo-itsalocked", "hugo-utilitybelt"]
+theme = ["hugo-itsalocke", "hugo-utilitybelt"]
 
 baseURL = "/"
 languageCode = "en-gb"
