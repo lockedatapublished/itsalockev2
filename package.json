@@ -13,5 +13,9 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "hugo-search-index": "^0.4.1"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.1.5",
+    "postcss-cli": "^6.0.0"
   }
 }
