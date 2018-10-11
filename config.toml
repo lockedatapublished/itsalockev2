@@ -6,8 +6,6 @@ title = "Locke Data"
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 enableGitInfo = true
 
-copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
-
 [outputs]
   home = ["HTML", "AMP", "RSS", "JSON"]
   page = ["HTML", "AMP", "JSON"]
@@ -50,6 +48,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-ShareAli
 
 
 [params]
+    copyright = "This work is licensed under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution-ShareAlike 4.0 International License</a>."
     custom_css = []
     custom_js = []
     date_format = "Mon, Jan 2, 2006"
