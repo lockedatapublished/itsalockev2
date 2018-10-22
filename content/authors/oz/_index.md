@@ -1,6 +1,6 @@
 ---
-id: steph
-title: Steph Locke
+id: oz
+title: Oz Locke
 photo: img/chibi.png
 twitter: theStephLocke
 github: stephlocke

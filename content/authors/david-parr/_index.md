@@ -1,6 +1,6 @@
 ---
-id: steph
-title: Steph Locke
+id: david-parr
+title: David Parr
 photo: img/chibi.png
 twitter: theStephLocke
 github: stephlocke

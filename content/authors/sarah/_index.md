@@ -1,6 +1,6 @@
 ---
-id: steph
-title: Steph Locke
+id: sarah
+title: Sarah Williams
 photo: img/chibi.png
 twitter: theStephLocke
 github: stephlocke

@@ -1,6 +1,6 @@
 ---
-id: steph
-title: Steph Locke
+id: leo
+title: Leo
 photo: img/chibi.png
 twitter: theStephLocke
 github: stephlocke

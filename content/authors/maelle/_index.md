@@ -1,6 +1,6 @@
 ---
-id: steph
-title: Steph Locke
+id: maelle
+title: Maëlle
 photo: img/chibi.png
 twitter: theStephLocke
 github: stephlocke

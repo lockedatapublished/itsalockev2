@@ -1,6 +1,6 @@
 ---
-id: steph
-title: Steph Locke
+id: amy-mcdougall
+title: Amy McDougall
 photo: img/chibi.png
 twitter: theStephLocke
 github: stephlocke

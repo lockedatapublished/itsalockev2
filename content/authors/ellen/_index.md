@@ -1,6 +1,6 @@
 ---
-id: steph
-title: Steph Locke
+id: ellen
+title: Ellen Talbot
 photo: img/chibi.png
 twitter: theStephLocke
 github: stephlocke
