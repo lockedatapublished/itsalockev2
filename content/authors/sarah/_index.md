@@ -1,9 +1,6 @@
 ---
 id: sarah
 title: Sarah Williams
-twitter: theStephLocke
-github: stephlocke
-linkedin: //linkedin.com/in/stephlocke
 tags:
   - R
   - Data Science

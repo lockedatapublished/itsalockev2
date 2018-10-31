@@ -2,9 +2,6 @@
 id: maelle
 title: Maëlle
 photo: img/HappyMaelle.png
-twitter: theStephLocke
-github: stephlocke
-linkedin: //linkedin.com/in/stephlocke
 tags:
   - R
   - Data Science

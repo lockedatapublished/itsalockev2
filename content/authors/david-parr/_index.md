@@ -2,9 +2,6 @@
 id: david-parr
 title: David Parr
 photo: img/HappyDave.png
-twitter: theStephLocke
-github: stephlocke
-linkedin: //linkedin.com/in/stephlocke
 tags:
   - R
   - Data Science

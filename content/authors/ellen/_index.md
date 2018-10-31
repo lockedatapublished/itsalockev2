@@ -2,9 +2,6 @@
 id: ellen
 title: Ellen Talbot
 photo: img/HappyEllen.png
-twitter: theStephLocke
-github: stephlocke
-linkedin: //linkedin.com/in/stephlocke
 tags:
   - R
   - Data Science

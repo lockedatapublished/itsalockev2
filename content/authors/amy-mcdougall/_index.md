@@ -2,9 +2,6 @@
 id: amy-mcdougall
 title: Amy McDougall
 photo: img/HappyAmy.png
-twitter: theStephLocke
-github: stephlocke
-linkedin: //linkedin.com/in/stephlocke
 tags:
   - R
   - Data Science
