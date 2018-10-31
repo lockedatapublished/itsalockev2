@@ -29,22 +29,32 @@ enableGitInfo = true
     url = "/products/"
     pre = "<i class=\"far fa-shopping-bag mr-1\" data-fa-transform=\"rotate--3\"></i>"
 
+[[menu.social]]
+    name = 'Twitter'
+    url = "https://twitter.com/lockedata"
+    pre = "twitter"
+[[menu.social]]
+    name = 'Github'
+    url = "https://github.com/lockedata"
+    pre = "github"
+[[menu.social]]
+    name = 'LinkedIn'
+    url = "https://linkedin.com/company/locke-data"
+    pre = "linkedin"
+[[menu.social]]
+    name = 'Youtube'
+    url = "https://www.youtube.com/channel/UCAg9ZUc9v3YedOuyAd-nDZQ"
+    pre = "youtube"
+
 [[menu.footer]]
-    identifier = "twitter"
-    pre = "<i class='fa fa-twitter'></i>"
-    url = "https://twitter.com/cboettig"
-    weight = 1
+    name = 'Policies'
+    url = "/policies"
 [[menu.footer]]
-    identifier = "github"
-    pre = "<i class='fa fa-github'></i>"
-    url = "https://github.com/cboettig"
-    weight = 2
+    name = 'Bug bounty'
+    url = "/bug-bounty"
 [[menu.footer]]
-    identifier = "copyright"
-    name = "MIT"
-    pre = "<i class='fa fa-balance-scale'></i>"
-    url = "https://spdx.org/licenses/MIT"
-    weight = 3
+    name = 'Sitemap'
+    url = "/sitemap.xml"
 
 
 [params]
