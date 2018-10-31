@@ -17,6 +17,10 @@ enableGitInfo = true
   talk = "talks"
 
 [[menu.main]]
+    name = "Blog"
+    url = "/posts/"
+    pre = "<i class=\"far fa-pen-square mr-1\" data-fa-transform=\"rotate--3\"></i>"
+[[menu.main]]
     name = "Authors"
     url = "/authors/"
     pre = "<i class=\"far fa-users mr-1\"></i>"
