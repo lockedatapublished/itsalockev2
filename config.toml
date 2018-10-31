@@ -20,46 +20,56 @@ enableGitInfo = true
     name = "Blog"
     url = "/posts/"
     pre = "<i class=\"far fa-pen-square mr-1\" data-fa-transform=\"rotate--3\"></i>"
+    weight = 1
 [[menu.main]]
     name = "Authors"
     url = "/authors/"
     pre = "<i class=\"far fa-users mr-1\"></i>"
+    weight = 2
 [[menu.main]]
     name = "Talks"
     url = "/talks/"
     pre = "<i class=\"far fa-chalkboard-teacher mr-1\"></i>"
+    weight = 3
 [[menu.main]]
     name = "Products"
     url = "/products/"
     pre = "<i class=\"far fa-shopping-bag mr-1\" data-fa-transform=\"rotate--3\"></i>"
+    weight = 4
 
 [[menu.social]]
     name = 'Twitter'
     url = "https://twitter.com/lockedata"
     pre = "twitter"
+    weight = 1
 [[menu.social]]
     name = 'Github'
     url = "https://github.com/lockedata"
     pre = "github"
+    weight = 2
 [[menu.social]]
     name = 'LinkedIn'
     url = "https://linkedin.com/company/locke-data"
     pre = "linkedin"
+    weight = 3
 [[menu.social]]
     name = 'Youtube'
     url = "https://www.youtube.com/channel/UCAg9ZUc9v3YedOuyAd-nDZQ"
     pre = "youtube"
+    weight = 4
 
 [[menu.footer]]
     name = 'Policies'
     url = "/policies"
+    weight = 1
 [[menu.footer]]
     name = 'Bug bounty'
     url = "/bug-bounty"
+    weight = 2
 [[menu.footer]]
     name = 'Sitemap'
     url = "/sitemap.xml"
-
+    weight = 3
 
 [params]
     copyright = "This work is licensed under a <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution-ShareAlike 4.0 International License</a>."
