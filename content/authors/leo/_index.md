@@ -1,7 +1,6 @@
 ---
 id: leo
 title: Leo
-photo: img/chibi.png
 twitter: theStephLocke
 github: stephlocke
 linkedin: //linkedin.com/in/stephlocke

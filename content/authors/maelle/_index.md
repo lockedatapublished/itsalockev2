@@ -1,7 +1,7 @@
 ---
 id: maelle
 title: Maëlle
-photo: img/chibi.png
+photo: img/HappyMaelle.png
 twitter: theStephLocke
 github: stephlocke
 linkedin: //linkedin.com/in/stephlocke

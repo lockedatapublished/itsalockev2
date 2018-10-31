@@ -1,7 +1,7 @@
 ---
 id: ellen
 title: Ellen Talbot
-photo: img/chibi.png
+photo: img/HappyEllen.png
 twitter: theStephLocke
 github: stephlocke
 linkedin: //linkedin.com/in/stephlocke

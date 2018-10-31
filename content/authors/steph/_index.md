@@ -1,7 +1,7 @@
 ---
 id: steph
 title: Steph Locke
-photo: img/chibi.png
+photo: img/ScienceSteffy.png
 twitter: theStephLocke
 github: stephlocke
 linkedin: //linkedin.com/in/stephlocke

@@ -1,7 +1,7 @@
 ---
 id: david-parr
 title: David Parr
-photo: img/chibi.png
+photo: img/HappyDave.png
 twitter: theStephLocke
 github: stephlocke
 linkedin: //linkedin.com/in/stephlocke

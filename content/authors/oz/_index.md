@@ -1,7 +1,7 @@
 ---
 id: oz
 title: Oz Locke
-photo: img/chibi.png
+photo: img/HappyOz.png
 twitter: theStephLocke
 github: stephlocke
 linkedin: //linkedin.com/in/stephlocke

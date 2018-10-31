@@ -1,7 +1,6 @@
 ---
 id: sarah
 title: Sarah Williams
-photo: img/chibi.png
 twitter: theStephLocke
 github: stephlocke
 linkedin: //linkedin.com/in/stephlocke

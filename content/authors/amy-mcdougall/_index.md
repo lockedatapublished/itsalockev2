@@ -1,7 +1,7 @@
 ---
 id: amy-mcdougall
 title: Amy McDougall
-photo: img/chibi.png
+photo: img/HappyAmy.png
 twitter: theStephLocke
 github: stephlocke
 linkedin: //linkedin.com/in/stephlocke
