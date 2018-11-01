@@ -13,13 +13,13 @@ tags:
   - strings
 ---
 
-As a heavy `R` and `Tidyverse` user, I've been playing with Microsofts `m`/Power Query language included in Excel and PowerBI from that perspective, looking for the functions to make my life easier, developing small code pipelines for my processing and trying to get a smooth, clear and maintainable data manipulation process in place. 
+As a heavy `R` and `Tidyverse` user, I've been playing with Microsofts `m`/Power Query language included in Excel and PowerBI from that perspective, looking for the functions to make my life easier, developing small code pipelines for my processing and trying to get a smooth, clear and maintainable data manipulation process in place.
 
 ## The Problem
 
 In PowerBI I have data generated from an API call to HubSpot, which deliveres a `json` which is flattened as the first step of the process into a table with hundreds of columns. These columns have a pretty regular naming convention, in a form similar to this:
 
-```
+```json
 client_notified_timestamp
 client_notified_source
 client_notified_sourceid

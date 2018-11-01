@@ -11,17 +11,10 @@ tags:
   - 'statuspost'
 
 ---
-# My Platformer
-
-
 
 Here&#8217;s my first attempt at a platformer, built in Construct 2 and using sprites form Game Maker.
 
 <span style="color: #99cc00;"><!--more--></span>
-
-
-
-
 
 It took me a about a week and it&#8217;s very simple but I&#8217;ve already hit the limit for events in the free version of Construct2! I guess I&#8217;m going to have buy a personal license.
 

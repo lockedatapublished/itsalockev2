@@ -15,15 +15,13 @@ tags:
 
 It's time for a Twitter book draw again: every month, a random Locke Data Twitter follower wins an excellent data science book! This month's book was [Weapons of Math Destruction : How Big Data Increases Inequality and Threatens Democracy](http://geni.us/mathdestruction). The animation I chose to create was inspired by the idea of _destruction_ and by my wanting to try out the fantastic new API of the `gganimate` package, and a very fast new gif encoder, `gifski`.
 
-Choosing an animation concept
-=============================
+## Choosing an animation concept
 
-I am not a designer nor an artist, but I like imagining new animations to announce the book winner, that I want to be **fun**, and **useful** by illustrating the use of some nifty R tools. That's a good way for me and you to learn new R skills! I've reported on [my efforts with `magick` to create a crystal ball for chibi Steph](https://itsalocke.com/blog/a-crystal-clear-book-draw/), R package for image manipulation, and [with `particles`, R package for simulating, well, _particles_, to move followers' names around!](https://itsalocke.com/blog/a-particles-arly-fun-book-draw/). 
+I am not a designer nor an artist, but I like imagining new animations to announce the book winner, that I want to be **fun**, and **useful** by illustrating the use of some nifty R tools. That's a good way for me and you to learn new R skills! I've reported on [my efforts with `magick` to create a crystal ball for chibi Steph](https://itsalocke.com/blog/a-crystal-clear-book-draw/), R package for image manipulation, and [with `particles`, R package for simulating, well, _particles_, to move followers' names around!](https://itsalocke.com/blog/a-particles-arly-fun-book-draw/).
 
 This month I thought about what destruction meant to me, and got the rather simple idea to have glass shatter, thus revealing the winner's name.
 
-Planning the my animation implementation
-========================================
+## Planning the my animation implementation
 
 Feel free to skip over this section and go to the code directly, unless you want to know more about my search and process to write said code!
 
@@ -33,15 +31,13 @@ I wasn't too sure how to make and use the fragments though. I re-read [Thomas Li
 
 I tried using the [`deldir` package](https://cran.r-project.org/web/packages/deldir/index.html) a bit to create Voronoi tesselation out of random points but its output didn't make me too happy since it was _segments_ rather than polygons. Re-creating polygons from them didn't sound too easy. I ditched this idea and googled keywords such as Voronoi and polygons and R and then `sf` the geospatial package since the first results indicated Voronoi tesselation was well supported for mapping stuff, and found this very useful [Stack Overflow post](https://stackoverflow.com/questions/45719790/create-voronoi-polygon-with-simple-feature-in-r) that made me [adapt an example from `sf` documentation](https://r-spatial.github.io/sf/reference/geos_unary.html).
 
-Once I had the polygons, the rest was animation as usual, well not really, since `gganimate` new API by Thomas Lin Pedersen is different, and so powerful! I haven't watched [Thomas' useR! keynote talk about The Grammar of animation](https://www.youtube.com/watch?v=21ZWDrTukEs) yet, but I look forward to it since I both admire his packages, and his [blog writing](https://www.data-imaginist.com/). I only use very basic `gganimate` stuff here. A good intro to its grammar can be found at https://github.com/thomasp85/gganimate/tree/master#gganimate- . 
+Once I had the polygons, the rest was animation as usual, well not really, since `gganimate` new API by Thomas Lin Pedersen is different, and so powerful! I haven't watched [Thomas' useR! keynote talk about The Grammar of animation](https://www.youtube.com/watch?v=21ZWDrTukEs) yet, but I look forward to it since I both admire his packages, and his [blog writing](https://www.data-imaginist.com/). I only use very basic `gganimate` stuff here. A good intro to its grammar can be found at https://github.com/thomasp85/gganimate/tree/master#gganimate- .
 
 I was also glad to read that  `gifski` is now on CRAN for all your gif making needs (it's actually the default gif renderer of `gganimate`). This package by [Jeroen Ooms](https://github.com/jeroen) is not only a wrapper to the fastest gif renderer around which is cool enough in itself, but also the first CRAN package that interfaces a Rust library! Read more [about `gifski` in this tech note](https://ropensci.org/technotes/2018/07/23/gifski-release/).
 
-Writing the actual animation code
-==================================
+## Writing the actual animation code
 
 The first part of the code consisted of drawing random points and using them as a basis for a Voronoi tesselation inside a box.
-
 
 ```r
 # adapted from https://r-spatial.github.io/sf/reference/geos_unary.html
@@ -52,7 +48,7 @@ with(set.seed(42),
      points <- sf::st_multipoint(matrix(runif(n = 400, lims[1],
                                               lims[2]),,2)))
 
-# get a square box that'll be the area of our animation 
+# get a square box that'll be the area of our animation
 box <- sf::st_polygon(list(rbind(c(lims[1], lims[1]),
                              c(lims[2], lims[1]),
                              c(lims[2], lims[2]),
@@ -167,7 +163,6 @@ p <- ggplot(dfall) +
 
 Now we can use all the PNGs that are in the "august_frames" folder, with `gifski`!
 
-
 ```r
 images <- sort(as.character(
    fs::dir_ls("august_frames")))
@@ -184,10 +179,9 @@ gifski::gifski(images,
 
 And voilà, a glass shattering animation!
 
-{{< figure src="../img/destruction.gif" title="Glass shattering book winner reveal">}} 
+{{< figure src="../img/destruction.gif" title="Glass shattering book winner reveal">}}
 
-Conclusion and resources round-up
-=================================
+## Conclusion and resources round-up
 
 In this post I explained how I created an animation of glass shattering.
 
@@ -195,7 +189,7 @@ R packages that are important to know for producing animations are:
 
 * `gganimate` that now implements the Grammar of animation, like `ggplot2` implements the Grammar of graphics! I'd recommend to watch [Thomas Lin Pedersen's useR! keynote talk about The Grammar of animation](https://www.youtube.com/watch?v=21ZWDrTukEs) and to follow the impressive activity of the [`gganimate` GitHub repo](https://github.com/thomasp85/gganimate).
 
-* `gifski` for gif rendering. It's used under the hood by `gganimate` but you might need it to combine PNGs yourself if you tweak animations a bit more like we did here. You can read this [tech note about `gifski` by Jeroen Ooms](https://ropensci.org/technotes/2018/07/23/gifski-release/), and to check out the [r-rust Github organization](https://github.com/r-rust). 
+* `gifski` for gif rendering. It's used under the hood by `gganimate` but you might need it to combine PNGs yourself if you tweak animations a bit more like we did here. You can read this [tech note about `gifski` by Jeroen Ooms](https://ropensci.org/technotes/2018/07/23/gifski-release/), and to check out the [r-rust Github organization](https://github.com/r-rust).
 
 * Likewise, if you want to tweak some frames, it'll be useful to know a bit about `magick`, wrapper to [ImageMagick](https://www.imagemagick.org/Magick++/STL.html), an R package for image manipulation developed at [rOpenSci](https://ropensci.org/) by [Jeroen Ooms](https://github.com/jeroen). This package has a [good vignette](https://cran.r-project.org/web/packages/magick/vignettes/intro.html).
 

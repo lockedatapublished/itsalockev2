@@ -13,24 +13,21 @@ tags:
 
 ---
 
-
 Locke Data's great blog is Markdown-based. What this means is that all blog posts exist as Markdown files: you can see all of them [here](https://github.com/lockedatapublished/blog/tree/master/content/posts). They then get rendered to html by [some sort of magic cough `blogdown` cough](https://github.com/rstudio/blogdown) we don't need to fully understand here. For marketing efforts, I needed a census of existing blog posts along with some precious information. Here is how I got it, in other words here is how I [*rectangled*](https://speakerdeck.com/jennybc/data-rectangling) the website GitHub repo and live version to serve our needs.
 
 Note: This should be applicable to any Markdown-based blog!
 
-What are you about, dear blog posts?
-====================================
+## What are you about, dear blog posts?
 
 To find out what a blog post is about, I read its tags and categories, that live in the YAML header of each post, see [for instance this one](https://github.com/lockedatapublished/blog/blob/master/content/posts/2013-05-19-time-to-go-home.md). Just a note, thank you, [participants in this Stack Overflow thread](https://stackoverflow.com/questions/25022016/get-all-file-names-from-a-github-repo-through-the-github-api).
 
-Getting all blog posts names and path
--------------------------------------
+## Getting all blog posts names and path
 
 I used the [`gh` package](https://github.com/r-lib/gh) to interact with GitHub V3 API.
 
 ``` r
 # get link to all posts and their filename
-posts <- gh::gh("/repos/:owner/:repo/contents/:path", 
+posts <- gh::gh("/repos/:owner/:repo/contents/:path",
                 owner = "lockedatapublished",
                 repo = "blog",
                 path = "content/posts")
@@ -60,15 +57,14 @@ gh_posts %>%
 
 There are 169 posts in this table.
 
-Getting all blog post image links
----------------------------------
+## Getting all blog post image links
 
 In a blogdown blog, you do not need to be consistent with image naming, as long as you give the correct link inside your post. Images used on Steph's blog live [here](https://github.com/lockedatapublished/blog/tree/master/static/img) and their names often reflect the blog post name, but not always. I thought it could be useful to have a table of all blog posts images. I wrote a function that downloads the content of each post and extract image links.
 
 ``` r
 get_pics <- function(path){
     message(path)
-    file <- gh::gh("/repos/:owner/:repo/contents/:path", 
+    file <- gh::gh("/repos/:owner/:repo/contents/:path",
                    owner = "lockedatapublished",
                    repo = "blog",
                    path = path)
@@ -102,15 +98,14 @@ readr::write_csv(gh_pics, path = "data/gh_imgs.csv")
 
 Having this table, one could run some analysis of the number of images by post, extract pictures when promoting a post, and tidy a website. I think Steph's filenames are good, but I could imagine renaming files based on the blog post they appear in if it had not been done previously (and changing the link inside posts obviously), but hey why clean if one can link the data anyway.
 
-Getting all tags and categories
--------------------------------
+## Getting all tags and categories
 
 The code here is similar to the previous one but slightly more complex because I wrote the post content inside a temporary .yaml file in order to read it using `rmarkdown::yaml_front_matter`.
 
 ``` r
 get_one_yaml <- function(path){
   print(path)
-  file <- gh::gh("/repos/:owner/:repo/contents/:path", 
+  file <- gh::gh("/repos/:owner/:repo/contents/:path",
                  owner = "lockedatapublished",
                  repo = "blog",
                  path = path)
@@ -132,7 +127,7 @@ get_one_yaml <- function(path){
   
   
   if("tags" %in% names(data)){
-    
+
     data <- dplyr::mutate(data, value = TRUE)
     data <- tidyr::spread(data, tags, value, fill = FALSE)
     data <- dplyr::mutate(data, path = path)
@@ -176,8 +171,7 @@ Tags and categories can be useful to perform an action on blog posts depending o
 
 So, I know a lot about blog posts now, but if I were to say read or webshoot them, where should I go?
 
-Where do you live, dear blog posts?
-===================================
+## Where do you live, dear blog posts?
 
 Often, the URL of a blog post can be guessed based on its title, e.g. [this one](https://raw.githubusercontent.com/lockedatapublished/blog/master/content/posts/2013-05-19-time-to-go-home.md) can be read [here](https://itsalocke.com/blog/time-to-go-home/). But even if the transition from the Markdown file information to an URL is logical, it was best to get URLs from the in situ blog posts, and then join them to the blog post information collected previously, since some special characters got special treatment that I could not fully understand by looking at `blogdown` source code.
 
@@ -187,7 +181,7 @@ I first extracted all posts URLs from the website map.
 library("magrittr")
 
 # get links and tags
-sitemap <- xml2::read_xml("https://itsalocke.com/blog/sitemap.xml") %>% 
+sitemap <- xml2::read_xml("https://itsalocke.com/blog/sitemap.xml") %>%
   xml2::as_list() %>%
   .$urlset
 
@@ -240,10 +234,10 @@ gh_info <- dplyr::filter(gh_info, !stringr::str_detect(name, "\\.Rmd"))
 unique(gh_info$slug)
 ```
 
-    ## [1] NA                                          
-    ## [2] "satrdays-voting-closes-may-31st"           
-    ## [3] "my-pass-summit2016-submissions-feedback"   
-    ## [4] "using-blogdown-with-an-existing-hugo-site" 
+    ## [1] NA
+    ## [2] "satrdays-voting-closes-may-31st"
+    ## [3] "my-pass-summit2016-submissions-feedback"
+    ## [4] "using-blogdown-with-an-existing-hugo-site"
     ## [5] "working-with-pdfs-scraping-the-pass-budget"
 
 ``` r
@@ -254,13 +248,13 @@ dash_filename = function(string, pattern = '[^[:alnum:]^\\.]+') {
     stringr::str_replace_all("DataOps.*? it.*?s a thing (honest)",
                              "dataops--its-a-thing-honest") %>%
     stringr::str_replace_all(pattern, '-') %>%
-    stringr::str_replace_all('^-+|-+$', '') 
-    
+    stringr::str_replace_all('^-+|-+$', '')
+
 }
-gh_info <- dplyr::mutate(gh_info, 
+gh_info <- dplyr::mutate(gh_info,
                          base = ifelse(!is.na(slug), slug, title),
                          base = dash_filename(base),
-                         false_url = paste0("https://itsalocke.com/blog/", 
+                         false_url = paste0("https://itsalocke.com/blog/",
                                       base, "/"))
 ```
 
@@ -270,17 +264,17 @@ Here are a few "false URLs" that I get. They're often the right URLs, but not al
 tail(gh_info$false_url)
 ```
 
-    ## [1] "https://itsalocke.com/blog/data-manipulation-in-r/"                                  
-    ## [2] "https://itsalocke.com/blog/using-blogdown-with-an-existing-hugo-site/"               
-    ## [3] "https://itsalocke.com/blog/working-with-pdfs-scraping-the-pass-budget/"              
-    ## [4] "https://itsalocke.com/blog/year-2-of-locke-data/"                                    
-    ## [5] "https://itsalocke.com/blog/connecting-to-sql-server-on-shinyapps.io/"                
+    ## [1] "https://itsalocke.com/blog/data-manipulation-in-r/"
+    ## [2] "https://itsalocke.com/blog/using-blogdown-with-an-existing-hugo-site/"
+    ## [3] "https://itsalocke.com/blog/working-with-pdfs-scraping-the-pass-budget/"
+    ## [4] "https://itsalocke.com/blog/year-2-of-locke-data/"
+    ## [5] "https://itsalocke.com/blog/connecting-to-sql-server-on-shinyapps.io/"
     ## [6] "https://itsalocke.com/blog/how-to-maraaverickfy-a-blog-post-without-even-reading-it/"
 
 The cases in which they're not the URL are often cases with double dashes for instance. In order to be quick, I decided to simply join them using string distance, because the false and right URLs will be quite similar anyway.
 
 ``` r
-all_info <- fuzzyjoin::stringdist_left_join(blog, gh_info, 
+all_info <- fuzzyjoin::stringdist_left_join(blog, gh_info,
                                             by = c("url" = "false_url"),
                                             max_dist = 3)
 all_info$url[(is.na(all_info$raw))]
@@ -292,9 +286,9 @@ all_info$url[(is.na(all_info$raw))]
 all_info$title[duplicated(all_info$raw)]
 ```
 
-    ## [1] "Shiny module design patterns: Pass module input to other modules" 
+    ## [1] "Shiny module design patterns: Pass module input to other modules"
     ## [2] "Shiny module design patterns: Pass module inputs to other modules"
-    ## [3] "optiRum 0.37.1 now out"                                           
+    ## [3] "optiRum 0.37.1 now out"
     ## [4] "optiRum 0.37.3 now out"
 
 ``` r
@@ -303,12 +297,10 @@ readr::write_csv(all_info, path = "data/all_info_about_posts.csv")
 
 So what are the posts that did not get mapped properly, in brief?
 
--   two very close announcements of a new version of `optiRum`. I can correct that by hand, but since URLs are needed to webshoot evergreen posts, I will probably ignore them.
+- two very close announcements of a new version of `optiRum`. I can correct that by hand, but since URLs are needed to webshoot evergreen posts, I will probably ignore them.
+- two very close blog post titles about Shiny that I shall correct.
 
--   two very close blog post titles about Shiny that I shall correct.
-
-A taste of the usefulness of such data!
-=======================================
+## A taste of the usefulness of such data!
 
 But hey here is what one gets from the website!
 
@@ -333,7 +325,7 @@ library("ggplot2")
 all_info <- dplyr::mutate(all_info, date = anytime::anytime(date.x))
 ggplot(all_info) +
   geom_point(aes(date), y = 0.5, col = "#2165B6", size = 0.9) +
-  hrbrthemes::theme_ipsum(grid = "Y") 
+  hrbrthemes::theme_ipsum(grid = "Y")
 ```
 
 ![](../img/rectangle-your-blog1.png)
@@ -350,7 +342,7 @@ categories_info <- all_info %>%
   dplyr::filter(stringr::str_detect(category, "cat\\_")) %>%
   dplyr::mutate(category = stringr::str_replace(category, "cat\\_", ""))
 categories <- categories_info %>%
-  dplyr::count(category, sort = TRUE) 
+  dplyr::count(category, sort = TRUE)
 
 knitr::kable(categories)
 ```

@@ -23,14 +23,13 @@ Sometimes packages have functions that don't do the things the way you want them
 
 I've had to do this recently with the `googleway` package and it's `google_distance()` function so I wanted to take you through step by step how I wrote code to go from a single value function to a function that handles many inputs and returns 4 rows per input. I won't be dwelling on how to write a function specifically, just showing you the workflow I often go through.
 
-Requirements
-------------
+## Requirements
 
 Key functionality we'll need today is:
 
--   googleway for providing the base function
--   the tidyverse, namely purrr and dplyr, for lots of the data manipulation
--   memoise for caching requests so we spend less cash
+- googleway for providing the base function
+- the tidyverse, namely purrr and dplyr, for lots of the data manipulation
+- memoise for caching requests so we spend less cash
 
 ``` r
 library(tidyverse)
@@ -38,8 +37,7 @@ library(memoise)
 library(googleway)
 ```
 
-Google Distance
----------------
+## Google Distance
 
 To calculate distances we can use the [google distance API](https://developers.google.com/maps/documentation/distance-matrix/start).
 
@@ -56,8 +54,7 @@ office = "E14 5EU"
 monday_9am = as.POSIXct("2018-12-03 09:00")
 ```
 
-Handling `google_distance()`
-----------------------------
+## Handling `google_distance()`
 
 The API is used to working with just a single address at a time so we need to do a bit of prep here to make it work with lots of accounts.
 
@@ -83,14 +80,14 @@ example_1
 
     ## $destination_addresses
     ## [1] "Canary Wharf, London E14 5EU, UK"
-    ## 
+    ##
     ## $origin_addresses
     ## [1] "Shooters Hill Rd, London SE3 8UQ, UK"
-    ## 
+    ##
     ## $rows
     ##                          elements
     ## 1 5.7 km, 5653, 37 mins, 2221, OK
-    ## 
+    ##
     ## $status
     ## [1] "OK"
 
@@ -133,49 +130,49 @@ example_3
     ## [[1]]
     ## [[1]]$destination_addresses
     ## [1] "Canary Wharf, London E14 5EU, UK"
-    ## 
+    ##
     ## [[1]]$origin_addresses
     ## [1] "Shooters Hill Rd, London SE3 8UQ, UK"
-    ## 
+    ##
     ## [[1]]$rows
     ##                          elements
     ## 1 5.7 km, 5653, 37 mins, 2221, OK
-    ## 
+    ##
     ## [[1]]$status
     ## [1] "OK"
-    ## 
-    ## 
+    ##
+    ##
     ## [[2]]
     ## [[2]]$destination_addresses
     ## [1] "Canary Wharf, London E14 5EU, UK"
-    ## 
+    ##
     ## [[2]]$origin_addresses
     ## [1] "Shooters Hill Rd, London SE3 8UQ, UK"
-    ## 
+    ##
     ## [[2]]$rows
     ##                          elements
     ## 1 5.7 km, 5653, 37 mins, 2221, OK
-    ## 
+    ##
     ## [[2]]$status
     ## [1] "OK"
 
 So our code is working over multiple cases and handling bad inputs pretty well, but how do we get some meaningful stuff out of it. Looking at the data, we get back a part of a table that contains a response.
 
 ``` r
-example_1 %>% 
-  map("rows") %>% 
+example_1 %>%
+  map("rows") %>%
   map("elements")
 ```
 
     ## $destination_addresses
     ## NULL
-    ## 
+    ##
     ## $origin_addresses
     ## NULL
-    ## 
+    ##
     ## $rows
     ## NULL
-    ## 
+    ##
     ## $status
     ## NULL
 
@@ -189,11 +186,11 @@ example_4 = google_distance_loop(from,
                         arrival_time = monday_9am,
                         key=key)
 
-example_4 %>% 
-  map("rows") %>% 
-  map("elements") %>% 
-  flatten() %>% 
-  map("duration") 
+example_4 %>%
+  map("rows") %>%
+  map("elements") %>%
+  flatten() %>%
+  map("duration")
 ```
 
     ## [[1]]
@@ -208,12 +205,12 @@ First of all, we'll need to reliably extract this information from a batch of re
 from = c("SE3 8UQ", NA, "SE3 8UQ")
 
 google_distance_tbl = function(x, ...) {
-  google_distance_loop(x,...) %>% 
-  map("rows") %>% 
-  map("elements") %>% 
-  flatten() %>% 
-  map(unclass) %>% 
-  map_df(flatten) %>% 
+  google_distance_loop(x,...) %>%
+  map("rows") %>%
+  map("elements") %>%
+  flatten() %>%
+  map(unclass) %>%
+  map_df(flatten) %>%
   cbind(x)
 }
   
@@ -237,11 +234,11 @@ from = c("SE3 8UQ", NA, "SE3 8UQ")
 
 google_distance_all = function(x, office, arrival_time, key, ...) {
   
-  interested_in = expand.grid(from=x, 
-     mode=c("driving", "walking", "bicycling", "transit"), 
+  interested_in = expand.grid(from=x,
+     mode=c("driving", "walking", "bicycling", "transit"),
       stringsAsFactors = FALSE)
 
-map2_df(interested_in$from,interested_in$mode, 
+map2_df(interested_in$from,interested_in$mode,
      ~mutate(
        google_distance_tbl(.x, office, mode=.y,
                         arrival_time = arrival_time,
@@ -292,22 +289,22 @@ google_distance_all =  function(x, dest, arrival_time, key, ...){
   )
   
   # Prep dataset
-   interested_in = expand.grid(from=x, 
-     mode=c("driving", "walking", "bicycling", "transit"), 
+   interested_in = expand.grid(from=x,
+     mode=c("driving", "walking", "bicycling", "transit"),
       stringsAsFactors = FALSE)
    # Perform google_distance calls for all combos
-  purrr::map2(interested_in$from,interested_in$mode, 
+  purrr::map2(interested_in$from,interested_in$mode,
      ~gd(.x, dest, mode=.y,
                         arrival_time = arrival_time,
                         key=key)
-  ) %>% 
+  ) %>%
     # Extract relevant section
-    purrr::map("rows") %>% 
-    purrr::map("elements") %>% 
-    purrr::flatten() %>% 
+    purrr::map("rows") %>%
+    purrr::map("elements") %>%
+    purrr::flatten() %>%
     # Simplify the data.frames
-    purrr::map(unclass) %>% 
-    purrr::map_df(purrr::flatten) %>% 
+    purrr::map(unclass) %>%
+    purrr::map_df(purrr::flatten) %>%
     # Add original lookup values
     cbind(interested_in)
 }
