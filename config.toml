@@ -77,6 +77,9 @@ enableGitInfo = true
     custom_js = []
     date_format = "Mon, Jan 2, 2006"
     description = "A website built through Hugo and blogdown."
+    includeReadingTime = true
+    showSidebarCategories = true
+    categoriesByCount = true
 
     # options for staticman
     staticman_debug = true
